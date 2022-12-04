@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:alpha="0.8"
+    android:background="@drawable/shape_progress"
+    android:gravity="center">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="@dimen/dp_10">
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="@dimen/custom_loading_view_progress_bar_size"
+                android:layout_height="@dimen/custom_loading_view_progress_bar_size"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:gravity="center_horizontal|center_vertical"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/progress_anim"
+                android:indeterminateDuration="200"
+                android:indeterminateOnly="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在加载"
+                android:textSize="@dimen/sp_15"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_3"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

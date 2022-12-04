@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Framework5.0</string>
+
+    <string name="get_back">返回</string>
+    <string name="get_more">更多</string>
+
+
+    <!-- 底部对话框所用的词组 （主要用于选择相册、相机）-->
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="dialog_from_look">查看头像大图</string>
+    <string name="dialog_from_camera">拍照</string>
+    <string name="dialog_from_album">从手机相册选择</string>
+
+    <!-- 自定义加载loading-->
+    <string name="loading" translatable="false">正在加载</string>
+    <string name="load_failed" translatable="false">加载失败，请点我重试</string>
+    <string name="load_end" translatable="false">没有更多数据</string>
+
+    <!--TakePhoto-->
+    <string name="tip_type_not_image" translatable="false">选择的不是图片</string>
+    <string name="tip_no_camera" translatable="false">没有相机</string>
+    <string name="tip_tips" translatable="false">提示</string>
+    <string name="tip_compress" translatable="false">正在压缩照片…</string>
+    <string name="tip_compress_failed" translatable="false">"%1$s 图片压缩失败:%2$s picturePath:%3$s"</string>
+    <string name="msg_crop_failed" translatable="false">"有裁切失败的图片"</string>
+    <string name="msg_compress_failed" translatable="false">"有压缩失败的图片"</string>
+    <string name="msg_crop_canceled" translatable="false">" 取消裁切"</string>
+    <string name="msg_operation_canceled" translatable="false">"操作被取消"</string>
+    <string name="tip_permission_camera" translatable="false">没有使用相机的权限，请在权限管理中开启</string>
+    <string name="tip_permission_storage" translatable="false">没有使用SD卡的权限，请在权限管理中开启</string>
+    <string name="tip_permission_camera_storage" translatable="false">没有使用相机和SD卡的权限，请在权限管理中开启</string>
+
+    <!-- 图片选择-->
+    <string name="album_view" translatable="false">选择图片</string>
+    <string name="image_view" translatable="false">单击选择</string>
+    <string name="add" translatable="false">确定</string>
+    <string name="selected" translatable="false">已选</string>
+    <string name="limit_exceeded" translatable="false">最多能选 %d 张</string>
+    <string name="error_null_cursor">Oops, something went wrong!</string>
+    <string name="permission_info">App requires permission to Storage to view images.</string>
+    <string name="permission_force">App requires permission to Storage to view images. Tap Settings and go to Permissions to grant permission.</string>
+    <string name="permission_ok">OK</string>
+    <string name="permission_settings">Settings</string>
+    <string name="permission_package">package</string>
+
+
+    <!--下拉刷新上拉加载框架-->
+    <string name="srl_content_empty">RefreshLayout中没有找到内容视图。您是否忘记在xml布局文件中添加？</string>
+    <string name="srl_component_falsify" formatted="false">%s 虚假区域\n代表运行时拖动的高度【%.1fdp】 \n而不会显示任何东西</string>
+
+
+    <string name="srl_header_pulling">下拉可以刷新</string>
+    <string name="srl_header_refreshing">正在刷新…</string>
+    <string name="srl_header_loading">等待底部加载完成…</string>
+    <string name="srl_header_release">释放立即刷新</string>
+    <string name="srl_header_finish">刷新完成</string>
+    <string name="srl_header_failed">刷新失败</string>
+    <string name="srl_header_update">上次更新 M-d HH:mm</string>
+    <string name="srl_header_secondary">释放进入二楼</string>
+
+
+    <string name="srl_footer_pulling">上拉加载更多</string>
+    <string name="srl_footer_release">释放立即加载</string>
+    <string name="srl_footer_loading">正在加载…</string>
+    <string name="srl_footer_refreshing">等待头部刷新完成…</string>
+    <string name="srl_footer_finish">加载完成</string>
+    <string name="srl_footer_failed">加载失败</string>
+    <string name="srl_footer_nothing">没有更多数据了</string>
+
+    <!-- 申请权限提示 -->
+    <string name="permission_request" translatable="false">程序没有请求到权限,这个程序可能无法正常工作,请授予权限!</string>
+    <!-- 申请权限被禁用的提示 -->
+    <string name="permission_rationale_ask_again" translatable="false">没有请求到权限,这个程序可能无法正常工作,打开应用程序设置修改应用程序的权限!</string>
+    <string name="permission_rationale_camera_again" translatable="false">没有请求到相机权限,可能被禁用了!导致程序可能无法正常工作,打开应用程序设置修改应用程序的权限!</string>
+    <string name="permission_rationale_contacts_again" translatable="false">没有请求到通讯录权限,可能被禁用了!导致程序可能无法正常工作,打开应用程序设置修改应用程序的权限!</string>
+    <string name="permission_rationale_location_again" translatable="false">没有请求到定位权限,可能被禁用了!导致程序可能无法正常工作,打开应用程序设置修改应用程序的权限!</string>
+    <string name="permission_rationale_mic_again" translatable="false">没有请求到麦克风权限,可能被禁用了!导致程序可能无法正常工作,打开应用程序设置修改应用程序的权限!</string>
+    <string name="permission_rationale_sdcard_again" translatable="false">没有请求到存储卡访问权限,可能被禁用了!导致程序可能无法正常工作,打开应用程序设置修改应用程序的权限!</string>
+
+
+    <!-- 异常布局 -->
+    <string name="common_network_connection_exception_title" translatable="false">当前网络异常</string>
+    <string name="common_network_connection_exception_description" translatable="false">移动数据或WI-FI网络异常，去设置网络吧</string>
+    <string name="common_server_exception_title" translatable="false">当前服务器异常</string>
+    <string name="common_server_exception_description" translatable="false">请尝试刷新看看</string>
+    <string name="common_not_content_exception_title" translatable="false">暂无内容</string>
+    <string name="common_not_content_exception_description" translatable="false">""</string>
+    <string name="common_data_exception_title" translatable="false">数据异常</string>
+    <string name="common_data_exception_description" translatable="false">""</string>
+    <string name="common_content_delete_title" translatable="false">当前内容已被删除</string>
+    <string name="request_failed" translatable="false">请求失败，请重试</string>
+    <string name="common_btn_text_type_to_setting" translatable="false">去设置</string>
+    <string name="common_btn_text_type_refresh" translatable="false">刷新</string>
+
+
+    <!--下载APK-->
+    <string name="download_apk_failure">下载应用失败，请重新下载!</string>
+    <string name="download_apk_complete">下载完毕,开始安装吧!</string>
+    <string name="download_update_now">正在更新…</string>
+    <string name="download_have_not_apk">下载的文件不存在</string>
+
+
+    <string name="cancel_app">再按一次退出程序</string>
+
+</resources>

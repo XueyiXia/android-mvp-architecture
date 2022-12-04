@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- 四边都是圆角背景 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bottom_pop_round_background_normal" android:state_pressed="false" />
+    <item android:drawable="@drawable/bottom_pop_round_background_pressed" android:state_pressed="true" />
+    <item android:drawable="@drawable/bottom_pop_round_background_pressed" android:state_focused="true" />
+    <item android:drawable="@drawable/bottom_pop_round_background_normal" />
+</selector>

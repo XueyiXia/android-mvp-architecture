@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--应用程序基础主题方案 Activity跳转动画效果:退出向右隐藏，进入向右弹出，启动另一个Activity时本页面不动 -->
+    <style name="AppLoaderStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--标题栏底色-->
+        <item name="colorPrimaryDark">@color/purple_200</item>
+        <!--状态栏底色-->
+        <item name="colorPrimary">@color/purple_200</item>
+        <!--导航栏标题字体颜色-->
+        <item name="android:textColorPrimary">@color/purple_200</item>
+    </style>
+
+    <!--侧滑使用的style-->
+    <style name="SwipeBackLayout">
+        <item name="edge_size">50dip</item>
+        <item name="shadow_left">@drawable/shadow_left</item>
+        <item name="shadow_right">@drawable/shadow_right</item>
+        <item name="shadow_bottom">@drawable/shadow_bottom</item>
+    </style>
+
+
+    <!--弹出框动画的style-->
+    <style name="IOSAnimationStyle">
+        <item name="android:windowEnterAnimation">@anim/photo_dialog_in_anim</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowExitAnimation">@anim/photo_dialog_out_anim</item>
+    </style>
+
+    <!--IOS底部弹出框的style-->
+    <style name="BottomPopWindowDialogStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!--权限管理弹出框style-->
+    <style name="DesignDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorAccent">#FFe13e3e</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@drawable/shape_rec_radius_5_frame_no_white</item>
+        <item name="android:background">@drawable/shape_rec_radius_5_frame_no_white</item>
+    </style>
+
+    <!-- 加载进度框 -->
+    <style name="LoadingDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@drawable/shape_rec_radius_5_frame_no_white</item>
+        <item name="android:windowIsFloating">true</item><!-- 是否浮现在activity之上 -->
+    </style>
+
+
+    <!--ToolBar 字体主题Style-->
+    <style name="CollapsingExpandedTitleTextAppearance" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/color_111111</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+
+    <!--ToolBar 自定义标题字体主题Style-->
+    <style name="ToolBarDoubleTitleTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/color_111111</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+
+    <style name="MultipleImageSelectTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/multiple_image_select_primary</item>
+        <item name="colorPrimaryDark">@color/multiple_image_select_primaryDark</item>
+        <item name="colorAccent">@color/multiple_image_select_accent</item>
+        <item name="background">@color/multiple_image_select_primary</item>
+
+    </style>
+</resources>

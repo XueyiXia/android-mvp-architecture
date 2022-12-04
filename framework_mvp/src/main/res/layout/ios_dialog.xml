@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_5"
+        android:paddingLeft="1.0dp"
+        android:paddingRight="1.0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_pop_round_background_normal"
+            android:orientation="vertical">
+
+            <!-- 附加的 -->
+            <TextView
+                android:id="@+id/look_header_add4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_pop_window_top_round_background_selector"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/line_add4"
+                layout="@layout/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:visibility="gone" />
+
+            <!-- 附加的 -->
+            <TextView
+                android:id="@+id/look_header_add1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_pop_window_top_round_background_selector"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/line_add1"
+                layout="@layout/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:visibility="gone" />
+
+            <!-- 附加的 -->
+            <TextView
+                android:id="@+id/look_header_add2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_pop_window_top_round_background_selector"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/line_add2"
+                layout="@layout/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:visibility="gone" />
+
+            <!-- 查看大头像 -->
+            <TextView
+                android:id="@+id/look_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_pop_window_top_round_background_selector"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/line"
+                layout="@layout/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/make_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_pop_window_top_round_background_selector"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:text="@string/dialog_from_camera"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_16" />
+
+            <include
+                android:id="@+id/view_line_bottom"
+                layout="@layout/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height" />
+
+            <TextView
+                android:id="@+id/chosen_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_pop_window_buttom_round_background_selector"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:text="@string/dialog_from_album"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_16" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/bottom_pop_window_round_background_selector"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="@string/cancel"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp_16" />
+    </LinearLayout>
+</LinearLayout>
