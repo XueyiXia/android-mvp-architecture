@@ -13,14 +13,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 
-abstract class BasePresenter<V : IView, M : IModel?> : IPresenter<V>, LifecycleObserver {
-    private var mWeakReference: WeakReference<V>? = null //弱引用
+abstract class BasePresenter<V : IView, M : IModel> : IPresenter<V>, LifecycleObserver {
 
-    private var mView: V? = null
+    private lateinit var mWeakReference: WeakReference<V> //弱引用
 
-    protected var mModel: M? = null
+    private lateinit var mView: V
 
-    private var mCompositeDisposable: CompositeDisposable? = null
+    lateinit var mModel : M
+
+    private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
 
     /**
      * 创建model
@@ -36,33 +37,24 @@ abstract class BasePresenter<V : IView, M : IModel?> : IPresenter<V>, LifecycleO
         mModel = createModel()
         //添加生命周期的监听
         if (mView is LifecycleOwner) {
-            val lifecycleOwner: LifecycleOwner? = mView as LifecycleOwner?
-            lifecycleOwner?.lifecycle?.addObserver(this)
+            val lifecycleOwner: LifecycleOwner = mView as LifecycleOwner
+            lifecycleOwner.lifecycle.addObserver(this)
         }
         mWeakReference = WeakReference(view)
-        mView = mWeakReference!!.get()
+        mView = mWeakReference.get()!!
     }
 
     /**
      * 解绑view
      */
     override fun detachView() {
-        if (null != mView) {
-            if (mView is LifecycleOwner) {
-                val lifecycleOwner: LifecycleOwner = mView as LifecycleOwner
-                onDestroy(lifecycleOwner)
-            }
-            mView = null
+        if (mView is LifecycleOwner) {
+            val lifecycleOwner: LifecycleOwner = mView as LifecycleOwner
+            onDestroy(lifecycleOwner)
         }
-        if (null != mModel) {
-            mModel!!.onDetach()
-            mModel = null
-        }
+        mModel.onDetach()
         disposable()
-        if (mWeakReference != null) {
-            mWeakReference!!.clear()
-            mWeakReference = null
-        }
+        mWeakReference.clear()
     }
 
     /**
@@ -70,22 +62,16 @@ abstract class BasePresenter<V : IView, M : IModel?> : IPresenter<V>, LifecycleO
      * @param disposable
      */
     fun addDisposable(disposable: Disposable) {
-        if (null == mCompositeDisposable) {
-            mCompositeDisposable = CompositeDisposable()
-        }
         Log.e("CompositeDisposable", disposable.toString())
-        mCompositeDisposable!!.add(disposable)
+        mCompositeDisposable.add(disposable)
     }
 
     /**
      * 清除订阅关系
      */
     private fun disposable() {
-        if (null != mCompositeDisposable) {
-            Log.e("CompositeDisposable", mCompositeDisposable.toString())
-            mCompositeDisposable!!.clear()
-            mCompositeDisposable = null
-        }
+        Log.e("CompositeDisposable", mCompositeDisposable.toString())
+        mCompositeDisposable.clear()
     }
 
     /**
@@ -93,7 +79,7 @@ abstract class BasePresenter<V : IView, M : IModel?> : IPresenter<V>, LifecycleO
      * @return
      */
     override val isViewAttached: Boolean
-        get() = mWeakReference != null && mWeakReference!!.get() != null
+        get() = mWeakReference.get() != null
 
     /**
      * 销毁订阅关系，防止内存泄漏

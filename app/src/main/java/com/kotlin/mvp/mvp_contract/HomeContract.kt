@@ -4,9 +4,6 @@ import android.content.Context
 import com.framework.mvp.interfac.IModel
 import com.framework.mvp.interfac.IPresenter
 import com.framework.mvp.interfac.IView
-import com.kotlin.mvp.bean.TestBean
-import com.kotlin.mvp.https.BaseRes
-import io.reactivex.Observable
 
 /**
  * @author: xiaxueyi
@@ -14,20 +11,17 @@ import io.reactivex.Observable
  * @time: 10:42
  * @说明:
  */
-interface TestContract {
+interface HomeContract {
     interface View : IView {
         fun onSuccess(`object`: Any?)
         fun onLError(`object`: Any?)
     }
 
     interface Presenter : IPresenter<View> {
-        fun request(context: Context, hashMap: HashMap<String, String>)
+        fun requestHome(pagerNum:Int)
     }
 
     interface Model : IModel {
-        fun getRequestData(
-            context: Context,
-            hashMap: HashMap<String, String>
-        ): Observable<BaseRes<List<TestBean>>>
+        fun getRequestData(pagerNum:Int)
     }
 }

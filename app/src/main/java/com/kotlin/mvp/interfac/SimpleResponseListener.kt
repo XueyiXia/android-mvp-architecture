@@ -1,8 +1,4 @@
-package com.framework.interfac;
-
-import com.framework.exception.ApiServerException;
-import com.framework.exception.CodeException;
-import com.framework.log.Logs;
+package com.kotlin.mvp.interfac
 
 /**
  * @author: xiaxueyi
@@ -10,22 +6,18 @@ import com.framework.log.Logs;
  * @time: 09:15
  * @说明: 服务器数据回调,
  */
+abstract class SimpleResponseListener<T> : ResponseListener<T> {
 
-public abstract class SimpleResponseListener <T> implements ResponseListener<T> {
+    override fun onSucceed(data: T, method: String) {
 
-    @Override
-    public void onSucceed(T data, String method) {
-        Logs.logPint("onSucceed");
     }
 
-    @Override
-    public void onCompleted() {
-        Logs.logPint("onCompleted");
+    override fun onCompleted() {
+
     }
 
-    @Override
-    public void onError(ApiServerException exception) {
-        CodeException code = exception.getCode();
-        Logs.logPint("onError-->>:"+code);
+
+    override fun onError(exception: Throwable?) {
+
     }
 }
