@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 
 abstract class BaseModel : IModel, LifecycleObserver {
 
-    override fun addDisposable(disposable: Disposable?) {
+    override fun addDisposable(disposable: Disposable) {
 
 
     }

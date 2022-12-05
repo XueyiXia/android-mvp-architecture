@@ -10,7 +10,7 @@ interface IModel {
      * 管理订阅关系
      * @param disposable
      */
-    fun addDisposable(disposable: Disposable?)
+    fun addDisposable(disposable: Disposable)
 
     /**
      * 解绑订阅关系

@@ -34,9 +34,7 @@
     <dimen name="sp_19">19sp</dimen>
     <dimen name="sp_20">20sp</dimen>
 
-    <!--custom_loading_view.xml-->
-    <dimen name="custom_loading_view_progress_bar_size">45dp</dimen>
-    <dimen name="line_height">1px</dimen>
+
 
     <!--底部导航栏-->
     <dimen name="bottom_navigation_elevation">8dp</dimen>

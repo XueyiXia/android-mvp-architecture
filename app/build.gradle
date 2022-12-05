@@ -1,3 +1,4 @@
+import com.framework.versionplugin.*
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -5,14 +6,14 @@ plugins {
 
 android {
     namespace 'com.kotlin.mvp'
-    compileSdk 33
+    compileSdk BuildVersions.compileSdk
 
     defaultConfig {
         applicationId "com.kotlin.mvp"
-        minSdk 21
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        minSdk BuildVersions.minSdk
+        targetSdk BuildVersions.targetSdk
+        versionCode BuildVersions.versionCode
+        versionName BuildVersions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,9 +38,27 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation AndroidX.coreKtx
+    implementation AndroidX.appcompat
+    implementation AndroidX.recyclerview
+    implementation AndroidX.material
+    implementation AndroidX.constraintLayout
+
+
+    implementation Retrofit.retrofit
+    implementation Retrofit.converter_gson
+    implementation Retrofit.adapter_rxjava3
+    implementation Retrofit.converter_scalars
+
+    implementation Rxjava3.rxjava
+    implementation Rxjava3.rxAndroid
+    implementation Rxjava3.gson
+    implementation Rxjava3.rxLifecycle
+
+    //OKHttp3
+    implementation OkHttp.okhttp3
+    implementation OkHttp.okio
+    implementation OkHttp.logging_interceptor
+
     implementation project(':framework_mvp')
 }

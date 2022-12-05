@@ -1,49 +1,19 @@
-package com.google.mvp.https;
+package com.kotlin.mvp.https
 
-import java.io.Serializable;
+import java.io.Serializable
 
-public class BaseRes<D> implements Serializable {
+class BaseRes<D> : Serializable {
+    var isSuccess = false
+    var code = 0
+    var msg: String? = null
+    var data: D? = null
+        private set
 
-    private static final int SUCCESS = 200;
-
-    private boolean success;
-    private int code;
-    private String msg;
-    private D data;
-
-    public static int getSUCCESS() {
-        return SUCCESS;
+    fun setData(data: D) {
+        this.data = data
     }
 
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public D getData() {
-        return data;
-    }
-
-    public void setData(D data) {
-        this.data = data;
+    companion object {
+        const val sUCCESS = 200
     }
 }

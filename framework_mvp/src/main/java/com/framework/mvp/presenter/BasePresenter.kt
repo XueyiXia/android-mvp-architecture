@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference
 abstract class BasePresenter<V : IView, M : IModel?> : IPresenter<V>, LifecycleObserver {
     private var mWeakReference: WeakReference<V>? = null //弱引用
 
-    protected var mView: V? = null
+    private var mView: V? = null
 
     protected var mModel: M? = null
 
@@ -29,28 +29,18 @@ abstract class BasePresenter<V : IView, M : IModel?> : IPresenter<V>, LifecycleO
     abstract fun createModel(): M
 
     /**
-     * 是否使用eventBus
-     * @return
-     */
-    abstract fun useEventBus(): Boolean
-
-    /**
      * 绑定view
      * @param view
      */
-    override fun attachView(view: V?) {
-        if (null != view) {
-//            mView = view;
-            mModel = createModel()
-
-            //添加生命周期的监听
-            if (mView is LifecycleOwner) {
-                val lifecycleOwner: LifecycleOwner? = mView as LifecycleOwner?
-                lifecycleOwner?.lifecycle?.addObserver(this)
-            }
-            mWeakReference = WeakReference(view)
-            mView = mWeakReference!!.get()
+    override fun attachView(view: V) {
+        mModel = createModel()
+        //添加生命周期的监听
+        if (mView is LifecycleOwner) {
+            val lifecycleOwner: LifecycleOwner? = mView as LifecycleOwner?
+            lifecycleOwner?.lifecycle?.addObserver(this)
         }
+        mWeakReference = WeakReference(view)
+        mView = mWeakReference!!.get()
     }
 
     /**

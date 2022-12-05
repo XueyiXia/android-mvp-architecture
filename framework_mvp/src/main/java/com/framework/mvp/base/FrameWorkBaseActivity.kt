@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +19,6 @@ import com.framework.mvp.interfac.BaseInterface
 import com.framework.mvp.interfac.IPresenter
 import com.framework.mvp.interfac.IView
 import com.framework.mvp.interfac.ProgressDialogListener
-import com.framework.mvp.log.Logs
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.reflect.ParameterizedType
@@ -138,14 +138,14 @@ abstract class FrameWorkBaseActivity <P:IPresenter<*>,T:ViewBinding>  : AppCompa
         if (disposable != null) {
             mCompositeDisposable!!.add(disposable)
         }
-        Logs.logError("RequestQueue", "disposable-->>$disposable")
+//        Logs.logError("RequestQueue", "disposable-->>$disposable")
         for (i in 0 until mCompositeDisposable!!.size()) {
-            Logs.logError("RequestQueue", "mCompositeDisposable->>$mCompositeDisposable")
+            Log.e("RequestQueue", "mCompositeDisposable->>$mCompositeDisposable")
         }
     }
 
     override fun removeRequestQueue(disposable: Disposable?) {
-        Logs.logError("RequestQueue", "removeRequestQueue--->>$disposable")
+        Log.e("RequestQueue", "removeRequestQueue--->>$disposable")
         mCompositeDisposable?.dispose()
     }
 

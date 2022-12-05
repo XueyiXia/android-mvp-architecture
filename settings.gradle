@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "KotlinMvpArchitecture"
 include ':app'
 include ':framework_mvp'
+includeBuild("VersionPlugin")
