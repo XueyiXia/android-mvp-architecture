@@ -2,6 +2,7 @@ package com.kotlin.mvp.mvp_model
 
 import com.framework.mvp.mode.BaseModel
 import com.kotlin.mvp.bean.HomeBean
+import com.kotlin.mvp.https.ConvertSchedulers
 import com.kotlin.mvp.https.HttpRequestService
 import com.kotlin.mvp.https.HttpResponseObserver
 import com.kotlin.mvp.mvp_contract.HomeContract
@@ -20,3 +21,4 @@ class HomeModel constructor() : BaseModel(), HomeContract.Model {
             .subscribe(HttpResponseObserver<HomeBean>())
     }
 }
+
