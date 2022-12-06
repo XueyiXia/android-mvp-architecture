@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.framework.mvp.interfac.IPresenter
-import com.framework.mvp.interfac.IView
+import com.framework.mvp.interfac.BaseView
 
 /**
  * @author: xiaxueyi
@@ -12,7 +12,7 @@ import com.framework.mvp.interfac.IView
  * @time: 10:13
  * @说明:
  */
- abstract class BaseActivity <P : IPresenter<*>> :AppCompatActivity() , IView {
+ abstract class BaseActivity <P : IPresenter<*>> :AppCompatActivity() , BaseView {
 
     public lateinit var mPresenter: P
 
@@ -23,8 +23,8 @@ import com.framework.mvp.interfac.IView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mPresenter = getPresenter()
-        mPresenter?.attachView(this as Nothing)
+        mPresenter = createPresenter()
+        mPresenter.attachView(this)
         setContentView(getLayoutResId())
         initView(window.decorView, savedInstanceState)
     }
@@ -34,7 +34,7 @@ import com.framework.mvp.interfac.IView
      * 创建Presenter层，全局使用
      * @return P
      */
-    protected abstract fun createPresenter(): P?
+    protected abstract fun createPresenter(): P
 
     /**
      * 资源文件

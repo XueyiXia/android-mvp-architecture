@@ -17,14 +17,14 @@ import com.framework.mvp.R
 import com.framework.mvp.dialog.ProgressDialog
 import com.framework.mvp.interfac.BaseInterface
 import com.framework.mvp.interfac.IPresenter
-import com.framework.mvp.interfac.IView
+import com.framework.mvp.interfac.BaseView
 import com.framework.mvp.interfac.ProgressDialogListener
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.reflect.ParameterizedType
 import kotlin.system.exitProcess
 
-abstract class FrameWorkBaseActivity <P:IPresenter<*>,T:ViewBinding>  : AppCompatActivity(), IView, ProgressDialogListener, BaseInterface {
+abstract class FrameWorkBaseActivity <P:IPresenter<*>,T:ViewBinding>  : AppCompatActivity(), BaseView, ProgressDialogListener, BaseInterface {
 
     private var mProgressDialogList: SparseArray<ProgressDialog>? = SparseArray<ProgressDialog>() //存储进度条列表
 

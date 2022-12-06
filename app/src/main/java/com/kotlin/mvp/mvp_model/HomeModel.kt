@@ -1,8 +1,8 @@
 package com.kotlin.mvp.mvp_model
 
 import com.framework.mvp.mode.BaseModel
+import com.framework.mvp.scheduler.SchedulerUtils
 import com.kotlin.mvp.bean.HomeBean
-import com.kotlin.mvp.https.ConvertSchedulers
 import com.kotlin.mvp.https.HttpRequestService
 import com.kotlin.mvp.https.HttpResponseObserver
 import com.kotlin.mvp.mvp_contract.HomeContract
@@ -18,6 +18,7 @@ class HomeModel constructor() : BaseModel(), HomeContract.Model {
 
     override fun getRequestData(pagerNum: Int) {
         HttpRequestService.instance.getFirstHomeData(1)
+            .compose(SchedulerUtils.ioToMain())
             .subscribe(HttpResponseObserver<HomeBean>())
     }
 }

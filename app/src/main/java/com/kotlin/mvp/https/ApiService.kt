@@ -2,7 +2,6 @@ package com.kotlin.mvp.https
 
 import com.kotlin.mvp.bean.HomeBean
 import io.reactivex.rxjava3.core.Observable
-import retrofit2.Response
 import retrofit2.http.*
 
 /**

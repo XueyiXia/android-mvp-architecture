@@ -1,6 +1,5 @@
 package com.kotlin.mvp.mvp_presenter
 
-import android.content.Context
 import com.framework.mvp.presenter.BasePresenter
 import com.kotlin.mvp.mvp_contract.HomeContract
 import com.kotlin.mvp.mvp_model.HomeModel

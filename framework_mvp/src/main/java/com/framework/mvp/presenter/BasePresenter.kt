@@ -8,12 +8,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import com.framework.mvp.interfac.IModel
 import com.framework.mvp.interfac.IPresenter
-import com.framework.mvp.interfac.IView
+import com.framework.mvp.interfac.BaseView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 
-abstract class BasePresenter<V : IView, M : IModel> : IPresenter<V>, LifecycleObserver {
+abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, LifecycleObserver {
 
     private lateinit var mWeakReference: WeakReference<V> //弱引用
 
@@ -34,6 +34,7 @@ abstract class BasePresenter<V : IView, M : IModel> : IPresenter<V>, LifecycleOb
      * @param view
      */
     override fun attachView(view: V) {
+        this.mView=view
         mModel = createModel()
         //添加生命周期的监听
         if (mView is LifecycleOwner) {

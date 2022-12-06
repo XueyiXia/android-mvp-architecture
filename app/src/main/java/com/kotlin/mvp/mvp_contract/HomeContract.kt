@@ -1,9 +1,8 @@
 package com.kotlin.mvp.mvp_contract
 
-import android.content.Context
 import com.framework.mvp.interfac.IModel
 import com.framework.mvp.interfac.IPresenter
-import com.framework.mvp.interfac.IView
+import com.framework.mvp.interfac.BaseView
 
 /**
  * @author: xiaxueyi
@@ -12,7 +11,7 @@ import com.framework.mvp.interfac.IView
  * @说明:
  */
 interface HomeContract {
-    interface View : IView {
+    interface View : BaseView {
         fun onSuccess(`object`: Any?)
         fun onLError(`object`: Any?)
     }

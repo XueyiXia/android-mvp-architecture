@@ -1,7 +1,6 @@
 package com.kotlin.mvp.https
 
-import android.content.Context
-import com.kotlin.mvp.interfac.ResponseListener
+import androidx.lifecycle.LifecycleObserver
 import com.kotlin.mvp.interfac.SimpleResponseListener
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
@@ -13,7 +12,7 @@ import io.reactivex.rxjava3.disposables.Disposable
  * @说明: 观察者;回调处理
  */
 
-class HttpResponseObserver<T> : Observer<T>{
+class HttpResponseObserver<T> : Observer<T>, LifecycleObserver {
 
     private var disposable: Disposable? = null//接触订阅
 
