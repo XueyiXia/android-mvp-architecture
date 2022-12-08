@@ -3,8 +3,8 @@ package com.framework.mvp.base
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.framework.mvp.interfac.IPresenter
 import com.framework.mvp.interfac.BaseView
+import com.framework.mvp.interfac.IPresenter
 
 /**
  * @author: xiaxueyi
@@ -47,4 +47,10 @@ import com.framework.mvp.interfac.BaseView
      * 入口函数
      */
     abstract fun initView(rootView: View, savedInstanceState: Bundle?)
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.detachView()
+    }
 }

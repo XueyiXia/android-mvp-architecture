@@ -2,10 +2,7 @@ package com.framework.mvp.presenter
 
 
 import android.util.Log
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 import com.framework.mvp.interfac.IModel
 import com.framework.mvp.interfac.IPresenter
 import com.framework.mvp.interfac.BaseView
@@ -13,7 +10,11 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 
-abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, LifecycleObserver {
+abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, DefaultLifecycleObserver {
+
+    companion object{
+        var TAG:String="BasePresenter"
+    }
 
     private lateinit var mWeakReference: WeakReference<V> //弱引用
 
@@ -50,10 +51,6 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, Lifecycl
      * 解绑view
      */
     override fun detachView() {
-        if (mView is LifecycleOwner) {
-            val lifecycleOwner: LifecycleOwner = mView as LifecycleOwner
-            onDestroy(lifecycleOwner)
-        }
         mModel.onDetach()
         disposable()
         mWeakReference.clear()
@@ -64,7 +61,7 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, Lifecycl
      * @param disposable
      */
     fun addDisposable(disposable: Disposable) {
-        Log.e("CompositeDisposable", disposable.toString())
+        Log.e(TAG,"addDisposable --> ${disposable.toString()}" )
         mCompositeDisposable.add(disposable)
     }
 
@@ -72,7 +69,7 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, Lifecycl
      * 清除订阅关系
      */
     private fun disposable() {
-        Log.e("CompositeDisposable", mCompositeDisposable.toString())
+        Log.e(TAG,"disposable --> ${mCompositeDisposable.toString()}" )
         mCompositeDisposable.clear()
     }
 
@@ -87,8 +84,41 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, Lifecycl
      * 销毁订阅关系，防止内存泄漏
      * @param lifecycleOwner
      */
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy(lifecycleOwner: LifecycleOwner?) {
-        lifecycleOwner?.lifecycle?.removeObserver(this)
+//    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+//    fun onDestroy(lifecycleOwner: LifecycleOwner?) {
+//        lifecycleOwner?.lifecycle?.removeObserver(this)
+//
+//        disposable()
+//    }
+
+    override fun onCreate(owner: LifecycleOwner) {
+        Log.e(TAG, "LifecycleObserver-> onCreate${owner}")
+        super.onCreate(owner)
+    }
+
+    override fun onStart(owner: LifecycleOwner) {
+        Log.e(TAG, "LifecycleObserver-> onStart :${owner}")
+        super.onStart(owner)
+    }
+
+    override fun onResume(owner: LifecycleOwner) {
+        Log.e(TAG, "LifecycleObserver-> onResume :${owner}")
+        super.onResume(owner)
+    }
+
+    override fun onPause(owner: LifecycleOwner) {
+        Log.e(TAG, "LifecycleObserver->onPause :${owner}")
+        super.onPause(owner)
+    }
+
+    override fun onStop(owner: LifecycleOwner) {
+        Log.e(TAG, "LifecycleObserver-> onStop :${owner}")
+        super.onStop(owner)
+    }
+
+    override fun onDestroy(owner: LifecycleOwner) {
+        Log.e(TAG, "LifecycleObserver--> onDestroy :${owner.lifecycle}")
+        super.onDestroy(owner)
+        owner.lifecycle.removeObserver(this)
     }
 }
