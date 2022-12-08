@@ -12,13 +12,13 @@ import io.reactivex.rxjava3.disposables.Disposable
  * @说明: 观察者;回调处理
  */
 
-class HttpResponseObserver<T> : Observer<T>, LifecycleObserver {
+open class HttpResponseObserver<T> constructor( private var mResponseListener: SimpleResponseListener<T>? = null) : Observer<T>, LifecycleObserver {
 
     private var disposable: Disposable? = null//接触订阅
 
     private val method: String? = null //缓存的方法名，其实就是一个 key值
 
-    private val mResponseListener: SimpleResponseListener<T>? = null
+//    private val mResponseListener: SimpleResponseListener<T>? = null
 
     override fun onSubscribe(d: Disposable) {
         disposable = d

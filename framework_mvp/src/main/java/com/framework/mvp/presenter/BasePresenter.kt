@@ -17,11 +17,12 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, Lifecycl
 
     private lateinit var mWeakReference: WeakReference<V> //弱引用
 
-    private lateinit var mView: V
+    lateinit var mView: V
 
     lateinit var mModel : M
 
     private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
+
 
     /**
      * 创建model

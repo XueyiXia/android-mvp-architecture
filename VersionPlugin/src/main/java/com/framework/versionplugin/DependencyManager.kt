@@ -16,6 +16,7 @@ object Versions {
     const val material = "1.6.1"
     const val lifecycle_viewmodel = "2.2.0"
     const val lifecycle_livedata = "2.2.0"
+    const val banner = "cn.bingoogolapple:bga-banner:2.2.6@aar"
 }
 
 object AndroidX {
@@ -47,5 +48,8 @@ object OkHttp{
     const val okio = "com.squareup.okio:okio:2.8.0"
     const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:4.9.1"
 }
+
+
+
 
 

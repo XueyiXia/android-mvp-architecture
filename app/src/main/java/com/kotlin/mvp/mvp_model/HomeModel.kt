@@ -5,6 +5,7 @@ import com.framework.mvp.scheduler.SchedulerUtils
 import com.kotlin.mvp.bean.HomeBean
 import com.kotlin.mvp.https.HttpRequestService
 import com.kotlin.mvp.https.HttpResponseObserver
+import com.kotlin.mvp.interfac.SimpleResponseListener
 import com.kotlin.mvp.mvp_contract.HomeContract
 
 /**
@@ -13,13 +14,32 @@ import com.kotlin.mvp.mvp_contract.HomeContract
  * @time: 10:42
  * @说明:
  */
-class HomeModel constructor() : BaseModel(), HomeContract.Model {
+class HomeModel : BaseModel(), HomeContract.Model {
 
 
-    override fun getRequestData(pagerNum: Int) {
+    override fun getRequestData(pagerNum: Int,simpleResponseListener: SimpleResponseListener<HomeBean>) {
+        val test=object : HttpResponseObserver<HomeBean>(object:SimpleResponseListener<HomeBean>(){
+
+            override fun onSucceed(data: HomeBean, method: String) {
+                super.onSucceed(data, method)
+
+            }
+
+            override fun onCompleted() {
+                super.onCompleted()
+            }
+
+            override fun onError(exception: Throwable?) {
+                super.onError(exception)
+            }
+        }){
+
+
+        }
         HttpRequestService.instance.getFirstHomeData(1)
             .compose(SchedulerUtils.ioToMain())
-            .subscribe(HttpResponseObserver<HomeBean>())
+            .subscribe(HttpResponseObserver(simpleResponseListener))
+
     }
 }
 
