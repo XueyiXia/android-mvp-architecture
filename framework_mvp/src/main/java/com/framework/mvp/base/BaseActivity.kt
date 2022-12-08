@@ -16,9 +16,6 @@ import com.framework.mvp.interfac.IPresenter
 
     public lateinit var mPresenter: P
 
-    open fun getPresenter(): P {
-        return mPresenter
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
