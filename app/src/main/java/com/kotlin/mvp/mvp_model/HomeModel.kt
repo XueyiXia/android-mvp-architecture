@@ -16,28 +16,9 @@ import com.kotlin.mvp.mvp_contract.HomeContract
  */
 class HomeModel : BaseModel(), HomeContract.Model {
 
-
     override fun getRequestData(pagerNum: Int,simpleResponseListener: SimpleResponseListener<HomeBean>) {
-        val test=object : HttpResponseObserver<HomeBean>(object:SimpleResponseListener<HomeBean>(){
-
-            override fun onSucceed(data: HomeBean, method: String) {
-                super.onSucceed(data, method)
-
-            }
-
-            override fun onCompleted() {
-                super.onCompleted()
-            }
-
-            override fun onError(exception: Throwable?) {
-                super.onError(exception)
-            }
-        }){
-
-
-        }
         HttpRequestService.instance.getFirstHomeData(1)
-            .compose(SchedulerUtils.ioToMain())
+            .compose(SchedulerUtils.ioToMainScheduler())
             .subscribe(HttpResponseObserver(simpleResponseListener))
 
     }

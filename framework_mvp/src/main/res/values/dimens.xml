@@ -76,4 +76,8 @@
     <dimen name="bottom_navigation_notification_margin_top">14dp</dimen>
     <dimen name="bottom_navigation_notification_margin_top_active">3dp</dimen>
     <dimen name="bottom_navigation_notification_text_size">9sp</dimen>
+
+    <!--custom_loading_view.xml-->
+    <dimen name="custom_loading_view_progress_bar_size">45dp</dimen>
+    <dimen name="line_height">1px</dimen>
 </resources>

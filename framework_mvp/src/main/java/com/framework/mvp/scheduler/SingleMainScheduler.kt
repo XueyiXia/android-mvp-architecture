@@ -3,10 +3,12 @@ package com.framework.mvp.scheduler
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
+
 /**
- * Created by xuhao on 2017/11/17.
- * desc:
+ * @author: xiaxueyi
+ * @date: 2022-12-05
+ * @time: 13:11
+ * @说明:
  */
 
-
-class SingleMainScheduler<T> private constructor() : BaseScheduler<T>(Schedulers.single(), AndroidSchedulers.mainThread())
+class SingleMainScheduler<T> constructor() : BaseScheduler<T>(Schedulers.single(), AndroidSchedulers.mainThread())

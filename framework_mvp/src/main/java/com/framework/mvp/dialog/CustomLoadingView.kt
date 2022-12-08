@@ -1,123 +1,106 @@
-package com.framework.dialog;
+package com.framework.mvp.dialog
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import com.framework.R;
-
+import android.content.Context
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
+import android.widget.TextView
+import com.framework.mvp.R
 
 /**
  * @author xiaxueyi
- * @date: 2021-10-23
+ * @date: 2022-11-23
  * @time: 17-10
  * @说明: 共同的加载框
  */
-public class CustomLoadingView extends RelativeLayout {
+class CustomLoadingView @JvmOverloads constructor(
+    private val mContext: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
+) : RelativeLayout(
+    mContext, attrs, defStyle
+) {
+    private lateinit var mProgressBar: ProgressBar//进度条
+    private lateinit var rlProgressBar: RelativeLayout //进度布局
+    private lateinit var loading_expression: LinearLayout//异常布局
+    private lateinit var loading_express_msg: TextView //异常布局提示
 
-    private ProgressBar mProgressBar;   //进度条
-
-    private Context mContext;
-
-    private RelativeLayout rlProgressBar;   //进度布局
-
-    private LinearLayout loading_expression;//异常布局
-
-    private TextView loading_express_msg;//异常布局提示
-
-    private boolean isShowing=false;    //加载框是否显示
+    /**
+     * 加载框是否显示
+     * @return
+     */
+    var isShowing = false //加载框是否显示
+        private set
 
     /**
      * this表示当前的，不能使用super
      * @param context
      */
-    public CustomLoadingView(Context context) {
-        this(context, null);
+    init {
+        initWidget()
     }
-
-    public CustomLoadingView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-
-    public CustomLoadingView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        this.mContext=context;
-        initWidget();
-    }
-
 
     /**
      * 初始化组件
      */
-    private void initWidget(){
-        View view= LayoutInflater.from(mContext).inflate( R.layout.custom_loading_view, this, true);
-        mProgressBar=(ProgressBar)view.findViewById( R.id.progressbar);
-        rlProgressBar=(RelativeLayout)view.findViewById( R.id.rlProgressDialog);
-        loading_expression= (LinearLayout) view.findViewById( R.id.loading_expression);
-        loading_express_msg= (TextView) view.findViewById( R.id.loading_express_msg);
+    private fun initWidget() {
+        val view: View = LayoutInflater.from(mContext).inflate(R.layout.custom_loading_view, this, true)
+        mProgressBar = view.findViewById<View>(R.id.progressbar) as ProgressBar
+        rlProgressBar = view.findViewById<View>(R.id.rlProgressDialog) as RelativeLayout
+        loading_expression = view.findViewById<View>(R.id.loading_expression) as LinearLayout
+        loading_express_msg = view.findViewById<View>(R.id.loading_express_msg) as TextView
     }
 
     /**
      * 设置异常提示
      * @param errorText
      */
-    public void setErrorText(String errorText, OnClickListener onClick){
-        if (rlProgressBar.getVisibility()== View.VISIBLE){
-            rlProgressBar.setVisibility(GONE);
+    fun setErrorText(errorText: String?, onClick: View.OnClickListener?) {
+        if (rlProgressBar.visibility == View.VISIBLE) {
+            rlProgressBar.visibility = View.GONE
         }
-        isShowing=false;
-        loading_expression.setVisibility(VISIBLE);
-        if (onClick!=null){
-            loading_expression.setOnClickListener(onClick);
+        isShowing = false
+        loading_expression.visibility = View.VISIBLE
+        if (onClick != null) {
+            loading_expression.setOnClickListener(onClick)
         }
-        loading_express_msg.setText(errorText);
+        loading_express_msg.text = errorText
     }
 
     /**
      * 加载框显示
      */
-    public void show(){
-        if(!isShowing){
-            mProgressBar.setVisibility( View.VISIBLE);
-            rlProgressBar.setVisibility( View.VISIBLE);
-            if (loading_expression.getVisibility()== View.VISIBLE){
-                loading_expression.setVisibility(GONE);
+    fun show() {
+        if (!isShowing) {
+            mProgressBar.visibility = View.VISIBLE
+            rlProgressBar.visibility = View.VISIBLE
+            if (loading_expression.visibility == View.VISIBLE) {
+                loading_expression.visibility = View.GONE
             }
-            isShowing=true;
+            isShowing = true
         }
     }
 
-    public void show(int resId){
-        if(!isShowing&&resId!=-1){
-            mProgressBar.setVisibility( View.VISIBLE);
-            rlProgressBar.setVisibility( View.VISIBLE);
-            rlProgressBar.setBackgroundResource(resId);
-            if (loading_expression.getVisibility()== View.VISIBLE){
-                loading_expression.setVisibility(GONE);
+    fun show(resId: Int) {
+        if (!isShowing && resId != -1) {
+            mProgressBar.visibility = View.VISIBLE
+            rlProgressBar.visibility = View.VISIBLE
+            rlProgressBar.setBackgroundResource(resId)
+            if (loading_expression.visibility == View.VISIBLE) {
+                loading_expression.visibility = View.GONE
             }
-            isShowing=true;
+            isShowing = true
         }
     }
 
     /**
-     * 加载框是否显示
-     * @return
+     * 关闭加载框
      */
-    public boolean isShowing(){
-        return isShowing;
-    }
-
-    /**
-     *关闭加载框
-     */
-    public void dismiss(){
-        isShowing=false;
-        this.setVisibility( View.GONE);
+    fun dismiss() {
+        isShowing = false
+        this.visibility = View.GONE
     }
 }

@@ -5,7 +5,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 /**
- * Created by xuhao on 2017/11/17.
- * desc:
+ * @author: xiaxueyi
+ * @date: 2022-12-05
+ * @time: 13:20
+ * @说明:
  */
 class IoMainScheduler<T> : BaseScheduler<T>(Schedulers.io(), AndroidSchedulers.mainThread())
