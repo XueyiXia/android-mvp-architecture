@@ -5,9 +5,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 /**
- * Created by xuhao on 2017/11/17.
- * desc:
+ * @author: xiaxueyi
+ * @date: 2022-12-05
+ * @time: 13:11
+ * @说明:
  */
 
-
-class ComputationMainScheduler<T> private constructor() : BaseScheduler<T>(Schedulers.computation(), AndroidSchedulers.mainThread())
+class ComputationMainScheduler<T> constructor() : BaseScheduler<T>(Schedulers.computation(), AndroidSchedulers.mainThread())

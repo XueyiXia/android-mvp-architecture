@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal|center_vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlProgressDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:layout_centerVertical="true"
+            android:focusableInTouchMode="true"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/loading_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="@dimen/custom_loading_view_progress_bar_size"
+                android:layout_height="@dimen/custom_loading_view_progress_bar_size"
+                android:layout_centerInParent="true"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/progress_anim"
+                android:indeterminateDuration="200"
+                android:indeterminateOnly="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading"
+            android:textSize="@dimen/sp_14"
+            android:textColor="#909090"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/rlProgressDialog"
+            android:layout_marginStart="@dimen/dp_5"/>
+
+    </RelativeLayout>
+
+
+    <!-- 异常布局-->
+    <LinearLayout
+        android:id="@+id/loading_expression"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_centerInParent="true" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/loading_express_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#909090"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center"
+            android:text="@string/load_failed"/>
+    </LinearLayout>
+</RelativeLayout>
