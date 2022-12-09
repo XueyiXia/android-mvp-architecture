@@ -46,5 +46,10 @@ dependencies {
 	implementation 'com.github.XueyiXia:android-mvp-architecture:v1.0.0' 
 }
 
+## 最后运行的结果
+
+![image](https://user-images.githubusercontent.com/25949241/206670090-997d05af-618c-4535-9760-1816e9e2efb5.png)
+
+
 
 最后，代码是最好的老师，如果有兴趣，可以下载demo 看看，如果这个这个架构能帮助到你，请右上角点击个星星吧！！！Thanks you so much .........END
