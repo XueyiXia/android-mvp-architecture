@@ -73,90 +73,15 @@ class MainActivity : BaseActivity<HomePresenter>(){
                 mHomeFragment!!.arguments = intent.extras
                 fragmentTransaction.show(mHomeFragment!!)
 
-//                //商城隐藏
-//                if (mMallsFragment != null && mMallsFragment.isAdded()) {
-//                    fragmentTransaction.hide(mMallsFragment)
-//                }
-//
-//                //通讯录隐藏
-//                if (mAddressBookFragment != null && mAddressBookFragment.isAdded()) {
-//                    fragmentTransaction.hide(mAddressBookFragment)
-//                }
-//
-//                //个人中心隐藏
-//                if (mUserFragment != null && mUserFragment.isAdded()) {
-//                    fragmentTransaction.hide(mUserFragment)
-//                }
             }
             TAG_MALLS -> {
-//                if (mMallsFragment == null) {
-//                    mMallsFragment = MyShopFragment()
-//                    mMallsFragment.setArguments(intent.extras)
-//                    fragmentTransaction.add(R.id.container, mMallsFragment)
-//                }
-//                fragmentTransaction.show(mMallsFragment)
-//
-//                //首页隐藏
-//                if (mHomeFragment != null && mHomeFragment.isAdded()) {
-//                    fragmentTransaction.hide(mHomeFragment)
-//                }
-//
-//                //通讯录隐藏
-//                if (mAddressBookFragment != null && mAddressBookFragment.isAdded()) {
-//                    fragmentTransaction.hide(mAddressBookFragment)
-//                }
-//
-//                //个人中心隐藏
-//                if (mUserFragment != null && mUserFragment.isAdded()) {
-//                    fragmentTransaction.hide(mUserFragment)
-//                }
+
             }
             TAG_ADDRESS_BOOK -> {
-//                if (mAddressBookFragment == null) {
-//                    mAddressBookFragment = AddressBookFragment()
-//                    mAddressBookFragment.setArguments(intent.extras)
-//                    fragmentTransaction.add(R.id.container, mAddressBookFragment)
-//                }
-//                fragmentTransaction.show(mAddressBookFragment)
-//
-//                //首页隐藏
-//                if (mHomeFragment != null && mHomeFragment.isAdded()) {
-//                    fragmentTransaction.hide(mHomeFragment)
-//                }
-//
-//                //商城隐藏
-//                if (mMallsFragment != null && mMallsFragment.isAdded()) {
-//                    fragmentTransaction.hide(mMallsFragment)
-//                }
-//
-//
-//                //个人中心隐藏
-//                if (mUserFragment != null && mUserFragment.isAdded()) {
-//                    fragmentTransaction.hide(mUserFragment)
-//                }
+
             }
             TAG_ME -> {
-//                if (mUserFragment == null) {
-//                    mUserFragment = UserFragment()
-//                    mUserFragment.setArguments(intent.extras)
-//                    fragmentTransaction.add(R.id.container, mUserFragment)
-//                }
-//                fragmentTransaction.show(mUserFragment)
-//
-//                //首页隐藏
-//                if (mHomeFragment != null && mHomeFragment.isAdded()) {
-//                    fragmentTransaction.hide(mHomeFragment)
-//                }
-//
-//                //商城隐藏
-//                if (mMallsFragment != null && mMallsFragment.isAdded()) {
-//                    fragmentTransaction.hide(mMallsFragment)
-//                }
-//
-//                //商城通讯录
-//                if (mAddressBookFragment != null && mAddressBookFragment.isAdded()) {
-//                    fragmentTransaction.hide(mAddressBookFragment)
-//                }
+
             }
         }
         fragmentTransaction.commitAllowingStateLoss()
