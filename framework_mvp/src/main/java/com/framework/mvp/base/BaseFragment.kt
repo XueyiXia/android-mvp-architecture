@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.framework.mvp.interfac.BaseView
 import com.framework.mvp.interfac.IPresenter
 
 
@@ -14,13 +15,12 @@ import com.framework.mvp.interfac.IPresenter
  * @time: 10:13
  * @说明:
  */
- abstract class BaseFragment<P : IPresenter<*>>: Fragment(){
+ abstract class BaseFragment<P : IPresenter<*>>: Fragment() , BaseView {
 
 
     lateinit var mPresenter: P
 
     private lateinit var mRootView: View
-
 
     /**
      * 视图是否加载完毕
@@ -35,6 +35,7 @@ import com.framework.mvp.interfac.IPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mPresenter = createPresenter()
+        mPresenter.attachView(this)
 
     }
 
