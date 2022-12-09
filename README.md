@@ -1,6 +1,6 @@
-# android-mvp-architecture
+## android-mvp-architecture
 
-kotlin 版本的 mvp 开发框架,适用于中小型项目，在以前开发的时候，很多时候都是用mvp 架构的方式去做，到后期发展都基本使用mvvm架构了！这段时间有空也就随手写了一个 mvp 架构，现在算是基本完成了！
+kotlin 版本的 mvp 开发框架,适用于中小型项目，在以前开发的时候，很多时候都是用mvc 或者mvp 架构进行项目的开发，到后期发展都基本使用mvvm架构了！这段时间有空也就随手写了一个 mvp 架构，现在算是基本完成了！后面再抽时间增加mvvm 开发架构！！
 
 ## 先看项目的架构图
 ![image](https://user-images.githubusercontent.com/25949241/206661466-06902a35-bbe4-4869-976b-9f3a4eec024c.png)
@@ -52,4 +52,4 @@ dependencies {
 
 
 
-最后，代码是最好的老师，如果有兴趣，可以下载demo 看看，如果这个这个架构能帮助到你，请右上角点击个星星吧！！！Thanks you so much .........END
+## 最后，代码是最好的老师，如果有兴趣，可以下载demo 看看，如果这个这个架构能帮助到你，请右上角点击个星星吧！！！Thanks you so much .........END
