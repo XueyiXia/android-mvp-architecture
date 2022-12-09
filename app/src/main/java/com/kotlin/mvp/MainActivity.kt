@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import com.framework.mvp.base.BaseActivity
+import com.framework.mvp.presenter.EmptyPresenter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
-import com.kotlin.mvp.mvp_presenter.HomePresenter
 
-class MainActivity : BaseActivity<HomePresenter>(){
+class MainActivity : BaseActivity<EmptyPresenter>(){
 
     private val TAG = "FrameActivity"
 
@@ -30,8 +30,8 @@ class MainActivity : BaseActivity<HomePresenter>(){
     private lateinit var mAHBottomNavigation: BottomNavigationView
 
 
-    override fun createPresenter(): HomePresenter {
-        return HomePresenter()
+    override fun createPresenter(): EmptyPresenter {
+        return EmptyPresenter()
     }
 
     override fun getLayoutResId(): Int {
