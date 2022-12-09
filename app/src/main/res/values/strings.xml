@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KotlinMvpArchitecture</string>
+    <string name="home">首页</string>
+    <string name="navigation_malls">商城</string>
+    <string name="navigation_address_book">通讯录</string>
+    <string name="user">我的</string>
 </resources>
