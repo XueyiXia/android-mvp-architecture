@@ -6,9 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.framework.mvp.interfac.IPresenter
-import com.trello.rxlifecycle2.LifecycleProvider
-import com.trello.rxlifecycle2.android.FragmentEvent
-import io.reactivex.subjects.BehaviorSubject
 
 
 /**
@@ -17,12 +14,13 @@ import io.reactivex.subjects.BehaviorSubject
  * @time: 10:13
  * @说明:
  */
- abstract class BaseFragment<P : IPresenter<*>>: Fragment() , LifecycleProvider<FragmentEvent>{
-
-    private val mLifecycleSubject = BehaviorSubject.create<FragmentEvent>() //管理RxJava生命周期，避免内存OOM的bug
+ abstract class BaseFragment<P : IPresenter<*>>: Fragment(){
 
 
-    public lateinit var mPresenter: P
+    lateinit var mPresenter: P
+
+    private lateinit var mRootView: View
+
 
     /**
      * 视图是否加载完毕
@@ -36,13 +34,13 @@ import io.reactivex.subjects.BehaviorSubject
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.mLifecycleSubject.onNext(FragmentEvent.CREATE)
         mPresenter = createPresenter()
 
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(getLayoutResId(),container,false)
+        mRootView = inflater.inflate(getLayoutResId(), container, false)
+        return mRootView
     }
 
 
@@ -56,7 +54,7 @@ import io.reactivex.subjects.BehaviorSubject
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         isViewPrepare = true
-        initView(view, savedInstanceState)
+        initView(mRootView, savedInstanceState)
         lazyLoadDataIfPrepared()
 
     }
@@ -76,7 +74,6 @@ import io.reactivex.subjects.BehaviorSubject
 
     override fun onDestroy() {
         super.onDestroy()
-        mLifecycleSubject.onNext(FragmentEvent.DESTROY)
     }
 
 
