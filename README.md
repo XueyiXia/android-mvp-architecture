@@ -39,6 +39,17 @@ kotlin 版本的 mvp 开发框架,适用于中小型项目，在以前开发的�
 ![image](https://user-images.githubusercontent.com/25949241/206665007-2d72ed35-e90a-48b6-9b73-e265311a3de5.png)
 
 
+##注意
+
+因为创建P层的方法是使用抽象的，所以继承BaseActivity 和 BaseFragment的时候，需要实现createPresenter 方法，为了保持统一性，因为没有做多一层的友好封装，如果自己的类不需要网络请求，请使用EmptyPresenter 和 EmptyModel，这两个类是空实现，没有任何的业务逻辑！如
+
+![image](https://user-images.githubusercontent.com/25949241/206954359-0927a210-c977-43d7-b322-e358f3675c69.png)
+
+使用方法基本一样，具体的使用看SplashActivity 类
+
+![image](https://user-images.githubusercontent.com/25949241/206954518-80e92fa5-404d-46a3-85bd-9a8f251d1508.png)
+
+
 ##How to use Add this to your build.gradle:
 
 dependencies {
