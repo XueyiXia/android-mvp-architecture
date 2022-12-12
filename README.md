@@ -41,7 +41,7 @@ kotlin 版本的 mvp 开发框架,适用于中小型项目，在以前开发的�
 
 ## 注意
 
-因为创建P层的方法是使用抽象的，所以继承BaseActivity 和 BaseFragment的时候，需要实现createPresenter 方法，为了保持统一性，因为没有做多一层的友好封装，如果自己的类不需要网络请求，请使用EmptyPresenter 和 EmptyModel，这两个类是空实现，没有任何的业务逻辑！如
+因为创建P层的方法是使用抽象的，所以继承BaseActivity 和 BaseFragment的时候，需要实现createPresenter 方法，为了保持统一性，所以没有做多一层的友好封装，如果自己的类不需要网络请求，请使用EmptyPresenter 和 EmptyModel，这两个类是空实现，没有任何的业务逻辑！如
 
 ![image](https://user-images.githubusercontent.com/25949241/206954359-0927a210-c977-43d7-b322-e358f3675c69.png)
 
