@@ -49,6 +49,10 @@ object OkHttp{
     const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:4.9.1"
 }
 
+object EasyPermissions {
+    //运行时权限
+    const val permissions = "pub.devrel:easypermissions:3.0.0"
+}
 
 
 
