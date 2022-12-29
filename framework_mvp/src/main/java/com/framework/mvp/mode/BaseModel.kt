@@ -1,9 +1,9 @@
 package com.framework.mvp.mode
 
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.framework.mvp.interfac.IModel
-import com.framework.mvp.presenter.BasePresenter
 import io.reactivex.disposables.Disposable
 
 abstract class BaseModel : IModel, DefaultLifecycleObserver {

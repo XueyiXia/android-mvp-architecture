@@ -3,9 +3,9 @@ package com.framework.mvp.presenter
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.framework.mvp.interfac.BaseView
 import com.framework.mvp.interfac.IModel
 import com.framework.mvp.interfac.IPresenter
-import com.framework.mvp.interfac.BaseView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference

@@ -14,12 +14,11 @@ import com.framework.mvp.interfac.IPresenter
  */
  abstract class BaseActivity <P : IPresenter<*>> :AppCompatActivity() , BaseView {
 
-    public lateinit var mPresenter: P
+    lateinit var mPresenter: P
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         mPresenter = createPresenter()
         mPresenter.attachView(this)
         setContentView(getLayoutResId())
