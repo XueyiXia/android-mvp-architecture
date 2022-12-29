@@ -5,7 +5,5 @@ package com.framework.mvp.interfac
  */
 interface  BaseView {
 
-    fun showLoading()
 
-    fun dismissLoading()
 }

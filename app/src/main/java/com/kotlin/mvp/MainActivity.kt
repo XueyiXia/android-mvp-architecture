@@ -1,5 +1,7 @@
 package com.kotlin.mvp
 
+
+import android.Manifest
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -7,6 +9,9 @@ import com.framework.mvp.base.BaseActivity
 import com.framework.mvp.presenter.EmptyPresenter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
+import pub.devrel.easypermissions.AfterPermissionGranted
+import pub.devrel.easypermissions.EasyPermissions
+
 
 class MainActivity : BaseActivity<EmptyPresenter>(){
 
@@ -52,6 +57,9 @@ class MainActivity : BaseActivity<EmptyPresenter>(){
          * 实例化底部导航栏
          */
         initBottomNavigation()
+
+
+        checkPermission()
     }
 
 
@@ -102,6 +110,12 @@ class MainActivity : BaseActivity<EmptyPresenter>(){
                 return true
             }
         }) 
+    }
+
+
+    private fun checkPermission(){
+        val perms = arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        EasyPermissions.requestPermissions(this, "应用需要以下权限，请允许", 0, *perms)
     }
 
 }

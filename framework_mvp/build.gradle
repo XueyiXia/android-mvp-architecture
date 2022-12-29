@@ -76,4 +76,6 @@ dependencies {
     implementation OkHttp.okhttp3
     implementation OkHttp.okio
     implementation OkHttp.logging_interceptor
+
+    api EasyPermissions.permissions
 }

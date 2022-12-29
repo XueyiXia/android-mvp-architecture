@@ -31,4 +31,6 @@ class SplashActivity : BaseActivity<EmptyPresenter>() {
         startActivity(intent)
         finish()
     }
+
+
 }

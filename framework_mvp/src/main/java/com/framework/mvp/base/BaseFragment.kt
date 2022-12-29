@@ -1,12 +1,16 @@
 package com.framework.mvp.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.framework.mvp.interfac.BaseView
 import com.framework.mvp.interfac.IPresenter
+import com.framework.mvp.utils.HelperUtils
+import io.reactivex.annotations.NonNull
+import pub.devrel.easypermissions.EasyPermissions
 
 
 /**
@@ -15,7 +19,7 @@ import com.framework.mvp.interfac.IPresenter
  * @time: 10:13
  * @说明:
  */
- abstract class BaseFragment<P : IPresenter<*>>: Fragment() , BaseView {
+ abstract class BaseFragment<P : IPresenter<*>>: Fragment() , BaseView , EasyPermissions.PermissionCallbacks{
 
 
     lateinit var mPresenter: P
@@ -58,6 +62,28 @@ import com.framework.mvp.interfac.IPresenter
         initView(mRootView, savedInstanceState)
         lazyLoadDataIfPrepared()
 
+    }
+
+
+    /**
+     * 重写要申请权限的Activity或者Fragment的onRequestPermissionsResult()方法，
+     * 在里面调用EasyPermissions.onRequestPermissionsResult()，实现回调。
+     *
+     * @param requestCode  权限请求的识别码
+     * @param permissions  申请的权限
+     * @param grantResults 授权结果
+     */
+    override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+        Log.i("EasyPermissions", "获取成功的权限$perms")
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        context?.let { HelperUtils.showPermissionsDenied(it,perms) }
     }
 
     private fun lazyLoadDataIfPrepared() {
