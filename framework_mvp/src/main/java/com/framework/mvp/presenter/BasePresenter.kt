@@ -2,6 +2,7 @@ package com.framework.mvp.presenter
 
 
 import android.util.Log
+import androidx.annotation.UiThread
 import androidx.lifecycle.*
 import com.framework.mvp.interfac.BaseView
 import com.framework.mvp.interfac.IModel
@@ -35,6 +36,7 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, DefaultL
      * 绑定view
      * @param view
      */
+    @UiThread
     override fun attachView(view: V) {
         this.mView=view
         mModel = createModel()
@@ -50,6 +52,7 @@ abstract class BasePresenter<V : BaseView, M : IModel> : IPresenter<V>, DefaultL
     /**
      * 解绑view
      */
+    @UiThread
     override fun detachView() {
         mModel.onDetach()
         disposable()
