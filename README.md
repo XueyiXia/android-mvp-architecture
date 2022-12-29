@@ -54,7 +54,7 @@ kotlin 版本的 mvp 开发框架,适用于中小型项目，在以前开发的�
 
 dependencies {
 
-	implementation 'com.github.XueyiXia:android-mvp-architecture:v1.0.0' 
+	implementation 'com.github.XueyiXia:android-mvp-architecture:v1.0.1' 
 }
 
 ## 最后运行的结果
