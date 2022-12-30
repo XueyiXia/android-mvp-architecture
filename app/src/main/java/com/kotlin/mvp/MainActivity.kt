@@ -15,18 +15,18 @@ import pub.devrel.easypermissions.EasyPermissions
 
 class MainActivity : BaseActivity<EmptyPresenter>(){
 
-    private val TAG = "FrameActivity"
+    companion object{
+        private const val TAG = "MainActivity"
 
-    val TAG_HOME = "TAG_HOME" //首页
-
-
-    val TAG_MALLS = "TAG_MALLS" //商城
+        const val TAG_HOME = "TAG_HOME" //首页
 
 
-    val TAG_ADDRESS_BOOK = "TAG_ADDRESS_BOOK" //通讯录
+        const val TAG_MALLS = "TAG_MALLS" //商城
 
 
-    val TAG_ME = "TAG_ME" //个人中心
+        const val TAG_ME = "TAG_ME" //个人中心
+    }
+
 
     private var tag: String = TAG_HOME //标识点击了那个Fragment,默认的是定位到首页
 
@@ -85,9 +85,6 @@ class MainActivity : BaseActivity<EmptyPresenter>(){
             TAG_MALLS -> {
 
             }
-            TAG_ADDRESS_BOOK -> {
-
-            }
             TAG_ME -> {
 
             }
@@ -99,12 +96,10 @@ class MainActivity : BaseActivity<EmptyPresenter>(){
     private fun initBottomNavigation(){
         mAHBottomNavigation.setOnItemSelectedListener(object :OnItemSelectedListener{
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                var position=item.itemId
-                when (position) {
-                    0 -> commitFragment(TAG_HOME)
-                    1 -> commitFragment(TAG_MALLS)
-                    2 -> commitFragment(TAG_ADDRESS_BOOK)
-                    3 -> commitFragment(TAG_ME)
+                when (item.itemId) {
+                    R.id.action_search -> commitFragment(TAG_HOME)
+                    R.id.action_settings -> commitFragment(TAG_MALLS)
+                    R.id.action_navigation -> commitFragment(TAG_ME)
                 }
 
                 return true
